@@ -20,12 +20,10 @@ $(".container").on("click", "span", function() {
 });
 
 $("#save-me").click(function() {
-    var taskText = $("<textarea>").val();
+    userInput = $(this).siblings(".textarea").val().trim();
+    hourSpan = $(this).siblings(".time-block").text().trim();
+    localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
-    if (taskText) {
-        loadTasks;
-
-    }
 })
 
 // add the ability to save these blocks in the local storage
@@ -35,58 +33,58 @@ var saveTasks = function() {
 
 buttonEl.addEventListener("click", saveTasks);
 
- $(".container").on("click", "textarea", function() {
-    // get the textarea's current value/text
-    var text = $(this)
-      .val()
-      .trim();
+//  $(".container").on("click", "textarea", function() {
+//     // get the textarea's current value/text
+//     var text = $(this)
+//       .val()
+//       .trim();
   
-    // get the parent's id attribute
-    var status = $(this)
-      .closest(".container")
-      .attr("id")
-      .replace("text-1", "");
+//     // get the parent's id attribute
+//     var status = $(this)
+//       .closest(".container")
+//       .attr("id")
+//       .replace("text-1", "");
   
-    // get the task's position in the list of other div elements
-    var index = $(this)
-      .closest(".container")
-      .index();
-    tasks[status][index].text = text;
-    saveTasks();
+//     // get the task's position in the list of other div elements
+//     var index = $(this)
+//       .closest(".container")
+//       .index();
+//     tasks[status][index].text = text;
+//     saveTasks();
   
-    // recreate p element
-    var taskP = $("<span>")
-      .addClass("textarea col-8")
-      .text(text);
+//     // recreate p element
+//     var taskP = $("<span>")
+//       .addClass("textarea col-8")
+//       .text(text);
   
-    // replace textarea with p element
-    $(this).replaceWith(taskP);
-    console.log('click');
-});
+//     // replace textarea with p element
+//     $(this).replaceWith(taskP);
+//     console.log('click');
+// });
   
-var loadTasks = function() {
-    var savedTasks = localStorage.getItem("tasks");
+// var loadTasks = function() {
+//     var savedTasks = localStorage.getItem("tasks");
   
-    if (!savedTasks) {
-      tasks = [];
-      return false;
-    }
-    tasks = JSON.parse(localStorage.getItem("tasks"));
-    savedTasks = JSON.parse(savedTasks);
-    // if nothing in localStorage, create a new object to track all task status arrays
-    if (!tasks) {
-      tasks = {};
-    }
+//     if (!savedTasks) {
+//       tasks = [];
+//       return false;
+//     }
+//     tasks = JSON.parse(localStorage.getItem("tasks"));
+//     savedTasks = JSON.parse(savedTasks);
+//     // if nothing in localStorage, create a new object to track all task status arrays
+//     if (!tasks) {
+//       tasks = {};
+//     }
     
-    // loop over object properties
-    $.each(tasks, function(list, arr) {
-       //then loop over sub-array
-        arr.forEach(function(tasks) {
-            createTask(tasks.text, list);
-        });
-    });
-};
-loadTasks();
-// saveTasks();
-// console.log(tasks)
-// // make the blocks change color according to past present and future
+//     // loop over object properties
+//     $.each(tasks, function(list, arr) {
+//        //then loop over sub-array
+//         arr.forEach(function(tasks) {
+//             createTask(tasks.text, list);
+//         });
+//     });
+// };
+// loadTasks();
+// // saveTasks();
+// // console.log(tasks)
+// // // make the blocks change color according to past present and future
