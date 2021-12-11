@@ -1,11 +1,11 @@
 // add queryselector for the button click
-var buttonEl = document.querySelector("#save-me");
+//var buttonEl = document.querySelector("#save-me");
 
 // create an open array so the user text has a place to enter
 var tasks = [];
 
 // add the ability to edit these blocks
-$(".container").on("click", "span", function() {
+$(".row").on("click", "textarea", function() {
     var text = $(this)
     .text()
     .trim();
@@ -16,7 +16,7 @@ $(".container").on("click", "span", function() {
       textInput.trigger("focus");
     console.log(this);
     tasks.push(textInput)
-    saveTasks();
+    //saveTasks();
 });
 
 $("#save-me").click(function() {
@@ -24,14 +24,15 @@ $("#save-me").click(function() {
     hourSpan = $(this).siblings(".time-block").text().trim();
     localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
-})
-
+});
+var getItem = function() {
+    loadtasks = localStorage.getItem(".time-block");
+} 
+console.log(getItem);
 // add the ability to save these blocks in the local storage
-var saveTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-};
 
-buttonEl.addEventListener("click", saveTasks);
+
+//buttonEl.addEventListener("click", saveTasks);
 
 //  $(".container").on("click", "textarea", function() {
 //     // get the textarea's current value/text
@@ -63,7 +64,7 @@ buttonEl.addEventListener("click", saveTasks);
 // });
   
 // var loadTasks = function() {
-//     var savedTasks = localStorage.getItem("tasks");
+//     var savedTasks = localStorage.getItem("#save-me");
   
 //     if (!savedTasks) {
 //       tasks = [];
