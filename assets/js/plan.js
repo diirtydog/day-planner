@@ -19,7 +19,7 @@ $(".row").on("click", "textarea", function() {
     //saveTasks();
 });
 
-$("#save-me").on('click', function() {
+$(".saveBtn").on('click', function() {
     var userInput = $(this)
     .siblings(".textarea")
     .val();
@@ -29,10 +29,17 @@ $("#save-me").on('click', function() {
     localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
 });
-var getItem = function() {
-    loadtasks = localStorage.getItem("#9");
-} 
-getItem();
+// load items from storage
+$("#9 .textarea").val(localStorage.getItem("9"));
+$("#10 .textarea").val(localStorage.getItem("10"));
+$("#11 .textarea").val(localStorage.getItem("11"));
+$("#12 .textarea").val(localStorage.getItem("12"));
+$("#1 .textarea").val(localStorage.getItem("1"));
+$("#2 .textarea").val(localStorage.getItem("2"));
+$("#3 .textarea").val(localStorage.getItem("3"));
+$("#4 .textarea").val(localStorage.getItem("4"));
+$("#5 .textarea").val(localStorage.getItem("5"));
+$("#6 .textarea").val(localStorage.getItem("6"));
 // add the ability to save these blocks in the local storage
 
 
