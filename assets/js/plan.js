@@ -19,16 +19,20 @@ $(".row").on("click", "textarea", function() {
     //saveTasks();
 });
 
-$("#save-me").click(function() {
-    userInput = $(this).siblings(".textarea").val().trim();
-    hourSpan = $(this).siblings(".time-block").text().trim();
+$("#save-me").on('click', function() {
+    var userInput = $(this)
+    .siblings(".textarea")
+    .val();
+    var hourSpan = $(this)
+    .parent()
+    .attr('id')
     localStorage.setItem(hourSpan, JSON.stringify(userInput));
 
 });
 var getItem = function() {
-    loadtasks = localStorage.getItem(".time-block");
+    loadtasks = localStorage.getItem("#9");
 } 
-console.log(getItem);
+getItem();
 // add the ability to save these blocks in the local storage
 
 
