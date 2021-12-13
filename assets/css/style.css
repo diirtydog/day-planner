@@ -6,7 +6,7 @@ body {
 
 textarea{
   background: transparent;
-  border: none;
+  border: 1px solid black;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
@@ -27,19 +27,21 @@ textarea{
 
 .time-block{
   text-align: center;
-  border-radius: 15px;
+  border-radius: 15px 0 0 15px;
+  font-size: large;
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  border-radius: 15px 15px 15px 15px;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border: 1px dashed #000000;
 }
 
 .past {
@@ -65,7 +67,12 @@ textarea{
   color: white;
 }
 
-.saveBtn i:hover {
+.saveBtn:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+  background-color: aquamarine;
+}
+
+.textarea:hover {
+  background-color: bisque;
 }
