@@ -1,7 +1,7 @@
 // get todays date and make hour variable
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
-var timeCurrent = moment().format("HH")-6;
+var timeCurrent = moment().format("HH");
 var tasks = [];
 // call the timer function so it loads instantly on the page
 timer();
